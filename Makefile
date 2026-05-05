@@ -1,7 +1,7 @@
-.PHONY: up down logs build restart ps test
+.PHONY: up down logs build package restart ps test
 
 up:
-	docker compose up --build -d
+	docker compose up --build --force-recreate -d
 
 down:
 	docker compose down
@@ -9,8 +9,10 @@ down:
 logs:
 	docker compose logs -f
 
-build:
-	docker compose build
+build: package
+
+package:
+	docker compose build --no-cache app
 
 restart:
 	docker compose restart

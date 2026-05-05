@@ -13,5 +13,6 @@ spring:
     locations: classpath:db/migration
 
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: none
